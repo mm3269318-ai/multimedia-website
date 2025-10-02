@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>الدروس - نظم الوسائط المتعددة</title>
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<header class="site-header">
+		<a class="brand" href="index.html"><img class="brand-img" src="assets/images/logo.png" alt="شعار المقرر" width="160" height="48" loading="eager" decoding="async"></a>
+		<button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">القائمة</button>
+		<nav id="siteNav" class="site-nav" aria-label="التنقل الرئيسي">
+			<ul>
+				<li><a href="index.html">الرئيسية</a></li>
+				<li><a class="is-active" href="lessons.html">الدروس</a></li>
+				<li><a href="gallery.html">المعرض</a></li>
+				<li><a href="video.html">الفيديو</a></li>
+				<li><a href="about.html">حول</a></li>
+			</ul>
+		</nav>
+	</header>
+
+    <section class="page-hero animate-on-scroll" aria-label="مقدمة صفحة الدروس">
+        <div class="container">
+            <h1>دروس نظم الوسائط المتعددة</h1>
+            <p>تعلم الأساسيات: النص، الصوت، الصورة، والفيديو مع أمثلة تفاعلية.</p>
+        </div>
+    </section>
+
+    <main class="content animate-on-scroll" style="max-width:1100px;padding:1rem;margin:0 auto;">
+        <h2>المفاهيم الأساسية</h2>
+        <p>اختر تبويباً للاطّلاع على شرح موجز مدعّم بأمثلة.</p>
+
+        <div class="tabs animate" id="tabs">
+			<div class="tablist" role="tablist" aria-label="تبويبات المفاهيم">
+				<button role="tab" aria-selected="true" aria-controls="panel1" id="tab1" class="btn">النص</button>
+				<button role="tab" aria-selected="false" aria-controls="panel2" id="tab2" class="btn">الصوت</button>
+				<button role="tab" aria-selected="false" aria-controls="panel3" id="tab3" class="btn">الصورة</button>
+				<button role="tab" aria-selected="false" aria-controls="panel4" id="tab4" class="btn">الفيديو</button>
+			</div>
+			<section id="panel1" role="tabpanel" aria-labelledby="tab1">
+				<h2>النص</h2>
+				<p>يُستخدم لعرض المعلومات بطريقة مقروءة وقابلة للبحث، ويُمثّل الأساس في الشروحات.</p>
+				<!-- تبويبات الشروحات النصية حسب المستويات -->
+				<div class="tabs animate" id="tabs-text">
+					<div class="tablist" role="tablist" aria-label="مستويات الشروحات">
+						<button role="tab" aria-selected="true" aria-controls="lvl1" id="tab-lvl1" class="btn">🟢 المستوى الأول</button>
+						<button role="tab" aria-selected="false" aria-controls="lvl2" id="tab-lvl2" class="btn">🟡 المستوى الثاني</button>
+						<button role="tab" aria-selected="false" aria-controls="lvl3" id="tab-lvl3" class="btn">🔵 المستوى الثالث</button>
+						<button role="tab" aria-selected="false" aria-controls="lvl4" id="tab-lvl4" class="btn">🔴 المستوى الرابع</button>
+					</div>
+
+					<section id="lvl1" role="tabpanel" aria-labelledby="tab-lvl1">
+						<h3>📘 الدرس 1: ما هي الوسائط المتعددة؟</h3>
+						<p><strong>الشرح:</strong> الوسائط المتعددة هي دمج بين النصوص، الصور، الأصوات، الفيديو، والرسوم المتحركة في نظام واحد لتوصيل معلومة أو فكرة بشكل أكثر جاذبية.</p>
+						<p><strong>مثال:</strong> إعلان على يوتيوب يحتوي موسيقى، نصوص، صور، وفيديو.</p>
+						<p><strong>🎬 المثال التطبيقي:</strong> تطبيق Duolingo يعرض نصوصًا، يستخدم صوتًا، يحتوي صورًا ويتفاعل معك.</p>
+						<p><strong>📝 التمرين:</strong> راقب إعلانًا قصيرًا وحدد: نص – صوت – صورة – فيديو – حركة.</p>
+
+						<h3>📘 الدرس 2: عناصر الوسائط المتعددة</h3>
+						<p><strong>الشرح:</strong> النصوص، الصور، الصوتيات، الفيديو، الرسوم المتحركة، التفاعل.</p>
+						<p><strong>🎬 المثال التطبيقي:</strong> Khan Academy: نصوص، فيديوهات، رسوم متحركة، أسئلة تفاعلية.</p>
+						<p><strong>📝 التمرين:</strong> اختر درس يوتيوب وحدد العناصر الظاهرة (نصوص – صور – صوت – فيديو – تفاعل).</p>
+
+						<h3>📘 الدرس 3: خصائص نظم الوسائط المتعددة</h3>
+						<p><strong>الشرح:</strong> التفاعلية، التكامل، الجاذبية، وإمكانية التخصيص.</p>
+						<p><strong>🎬 المثال التطبيقي:</strong> لعبة تعليمية: صور/شخصيات متحركة + أصوات + خيارات تفاعلية.</p>
+						<p><strong>📝 التمرين:</strong> صمّم درسًا بسيطًا للألوان بمزج نص + صورة + صوت.</p>
+					</section>
+
+					<section id="lvl2" role="tabpanel" aria-labelledby="tab-lvl2" hidden>
+						<h3>📘 الدرس 4: تصميم ومعالجة الصور</h3>
+						<p><strong>الشرح:</strong> صور نقطية (JPEG/PNG) وصور فيكتورية (SVG/AI) وأساسيات التعديل.</p>
+						<p><strong>🎬 المثال التطبيقي:</strong> إعلان مطعم: ضبط الإضاءة، تشبع اللون، نص ترويجي.</p>
+						<p><strong>📝 التمرين:</strong> عدّل صورة بأداة مثل Canva/GIMP: سطوع، قص، إضافة نص.</p>
+
+						<h3>📘 الدرس 5: تحرير الصوتيات</h3>
+						<p><strong>الشرح:</strong> تسجيل، معالجة (إزالة الضوضاء)، وإضافة مؤثرات.</p>
+						<p><strong>🎬 المثال التطبيقي:</strong> بودكاست تعليمي بموسيقى بداية/نهاية وتحسين صوت.</p>
+						<p><strong>📝 التمرين:</strong> سجّل 30 ثانية، حَسّنها في Audacity بإزالة الضوضاء/إضافة صدى.</p>
+
+						<h3>📘 الدرس 6: المونتاج وصناعة الفيديو</h3>
+						<p><strong>الشرح:</strong> قص ودمج، عناوين، انتقالات، وتصدير MP4.</p>
+						<p><strong>🎬 المثال التطبيقي:</strong> فيديو طبخ: مكونات (صور+نصوص)، تعليق صوتي، موسيقى خفيفة.</p>
+						<p><strong>📝 التمرين:</strong> قص أول 5 ثوانٍ، أضف نص "مرحبا بكم"، وصدّر الفيديو.</p>
+					</section>
+
+					<section id="lvl3" role="tabpanel" aria-labelledby="tab-lvl3" hidden>
+						<h3>📘 الدرس 7: الرسوم المتحركة (Animation)</h3>
+						<p><strong>الشرح:</strong> 2D و3D للتعليم والإعلانات والألعاب.</p>
+						<p><strong>🎬 المثال التطبيقي:</strong> فيديو حروف للأطفال بشخصية كرتونية متحركة.</p>
+						<p><strong>📝 التمرين:</strong> أنشئ مشهدًا قصيرًا بأداة Powtoon/Animaker.</p>
+
+						<h3>📘 الدرس 8: التفاعل في الوسائط المتعددة</h3>
+						<p><strong>الشرح:</strong> اختبارات، ألعاب، وتطبيقات تعليمية بأدوات مثل Unity وHTML5.</p>
+						<p><strong>🎬 المثال التطبيقي:</strong> سؤال تفاعلي مع تغذية راجعة صوتية/بصرية.</p>
+						<p><strong>📝 التمرين:</strong> عرض PowerPoint بسؤال وخيارين مع انتقال "إجابة صحيحة".</p>
+
+						<h3>📘 الدرس 9: دمج الوسائط في نظام واحد</h3>
+						<p><strong>الشرح:</strong> تخطيط → إنتاج → دمج → اختبار لعناصر نص/صورة/صوت/فيديو.</p>
+						<p><strong>🎬 المثال التطبيقي:</strong> درس إلكتروني بكلمة + صورة + صوت + اختبار قصير.</p>
+						<p><strong>📝 التمرين:</strong> شرائح تحتوي نصًا وصورة وصوتًا مع ربط سؤال بسيط.</p>
+					</section>
+
+					<section id="lvl4" role="tabpanel" aria-labelledby="tab-lvl4" hidden>
+						<h3>📘 الدرس 10: التصميم الموجّه للمستخدم (UX/UI)</h3>
+						<p><strong>الشرح:</strong> البساطة، تباين الألوان، وتفاعل واضح.</p>
+						<p><strong>🎬 المثال التطبيقي:</strong> واجهة تطبيق تعليم لغات بأزرار واضحة.</p>
+						<p><strong>📝 التمرين:</strong> ارسم واجهة (Wireframe) لشاشة رئيسية وزر "ابدأ".</p>
+
+						<h3>📘 الدرس 11: مشاريع تطبيقية</h3>
+						<p><strong>الشرح:</strong> طبّق ما تعلمته بمشاريع: عرض تفاعلي، لعبة بسيطة، فيديو قصير.</p>
+						<p><strong>📝 التمرين:</strong> اختر مشروعًا وخطط عناصره ثم نفّذه بأداة مناسبة.</p>
+
+						<h3>📘 الدرس 12: مستقبل الوسائط المتعددة</h3>
+						<p><strong>الشرح:</strong> VR, AR, AI, Metaverse وآفاق استخدامها في التعليم والتسويق.</p>
+						<p><strong>🎬 المثال التطبيقي:</strong> تطبيق IKEA Place لعرض أثاث افتراضي بتقنية AR.</p>
+						<p><strong>📝 التمرين:</strong> جرّب تطبيق AR/VR وفكّر في توظيفه تعليميًا أو تسويقيًا.</p>
+					</section>
+				</div>
+			</section>
+			<section id="panel2" role="tabpanel" aria-labelledby="tab2" hidden>
+				<h2>الصوت</h2>
+				<figure class="animate" style="margin:.75rem 0;">
+					<audio controls preload="metadata" style="width:100%;">
+						<source src="assets/audio/voice.aac" type="audio/aac">
+						متصفحك لا يدعم تشغيل ملف الصوت AAC.
+					</audio>
+					
+			</section>
+			<section id="panel3" role="tabpanel" aria-labelledby="tab3" hidden>
+				<h2>الصورة</h2>
+				<p>تنسيقات AVIF/WEBP توفّر ضغطاً أفضل مقارنةً بـ JPEG مع الحفاظ على التفاصيل.</p>
+				
+				<h3 style="margin-top:1.5rem;">معرض الصور التعليمية</h3>
+				<div class="feature-grid animate" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0;">
+					<figure style="background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1rem; box-shadow: 0 4px 16px rgba(0,0,0,.04);">
+						<img src="assets/images/images.webp" width="400" height="300" loading="lazy" decoding="async" alt="مثال على معالجة الصور الرقمية" style="width: 100%; height: auto; border-radius: 0.5rem;"/>
+						<figcaption style="margin-top: 0.75rem; color: var(--muted);">
+							<h4 style="margin: 0 0 0.25rem; font-size: 1rem;">معالجة الصور الرقمية</h4>
+							<p style="margin: 0; font-size: 0.875rem;">أساسيات معالجة الصور الرقمية وتقنيات التحسين والضغط للحصول على أفضل جودة.</p>
+						</figcaption>
+					</figure>
+					
+					<figure style="background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1rem; box-shadow: 0 4px 16px rgba(0,0,0,.04);">
+						<img src="assets/images/images (1).webp" width="400" height="300" loading="lazy" decoding="async" alt="خصائص نظم الوسائط المتعددة" style="width: 100%; height: auto; border-radius: 0.5rem;"/>
+						<figcaption style="margin-top: 0.75rem; color: var(--muted);">
+							<h4 style="margin: 0 0 0.25rem; font-size: 1rem;">خصائص نظم الوسائط المتعددة</h4>
+							<p style="margin: 0; font-size: 0.875rem;">التزامن، التنوع، المرونة، والتفاعل - المبادئ الأساسية التي تميز أنظمة الوسائط المتعددة الحديثة.</p>
+						</figcaption>
+					</figure>
+					
+					<figure style="background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1rem; box-shadow: 0 4px 16px rgba(0,0,0,.04);">
+						<img src="assets/images/images (2).webp" width="400" height="300" loading="lazy" decoding="async" alt="تقنيات ضغط الصور" style="width: 100%; height: auto; border-radius: 0.5rem;"/>
+						<figcaption style="margin-top: 0.75rem; color: var(--muted);">
+							<h4 style="margin: 0 0 0.25rem; font-size: 1rem;">تقنيات ضغط الصور</h4>
+							<p style="margin: 0; font-size: 0.875rem;">مقارنة بين تنسيقات ضغط الصور المختلفة وفوائد كل منها في التطبيقات الحديثة.</p>
+						</figcaption>
+					</figure>
+					
+					<figure style="background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1rem; box-shadow: 0 4px 16px rgba(0,0,0,.04);">
+						<img src="assets/images/images (3).webp" width="400" height="300" loading="lazy" decoding="async" alt="الرسوم المتحركة والوسائط التفاعلية" style="width: 100%; height: auto; border-radius: 0.5rem;"/>
+						<figcaption style="margin-top: 0.75rem; color: var(--muted);">
+							<h4 style="margin: 0 0 0.25rem; font-size: 1rem;">الرسوم المتحركة</h4>
+							<p style="margin: 0; font-size: 0.875rem;">أساسيات الرسوم المتحركة ثنائية وثلاثية الأبعاد في تطبيقات الوسائط المتعددة.</p>
+						</figcaption>
+					</figure>
+					
+					<figure style="background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1rem; box-shadow: 0 4px 16px rgba(0,0,0,.04);">
+						<img src="assets/images/OIP.webp" width="400" height="300" loading="lazy" decoding="async" alt="واجهات المستخدم والتصميم التفاعلي" style="width: 100%; height: auto; border-radius: 0.5rem; display: block;"/>
+						<figcaption style="margin-top: 0.75rem; color: var(--muted);">
+							<h4 style="margin: 0 0 0.25rem; font-size: 1rem;">واجهات المستخدم</h4>
+							<p style="margin: 0; font-size: 0.875rem;">مبادئ تصميم واجهات المستخدم التفاعلية في تطبيقات الوسائط المتعددة.</p>
+						</figcaption>
+					</figure>
+				</div>
+				
+				<div style="background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1rem; margin-top: 1rem;">
+					<h4 style="margin: 0 0 0.5rem; color: var(--brand-1);">💡 نصائح احترافية للصور</h4>
+					<ul style="margin: 0; padding-right: 1rem; color: var(--muted);">
+						<li>استخدم WEBP للصور الفوتوغرافية مع ضغط 80-90% للحصول على أفضل توازن بين الحجم والجودة.</li>
+						<li>AVIF يوفر ضغط أفضل بـ 50% من WEBP لكن دعم المتصفحات محدود.</li>
+						<li>SVG مثالي للشعارات والأيقونات والرسوم البسيطة.</li>
+						<li>أضف أبعاد العرض والارتفاع لتجنب التخطي أثناء التحميل.</li>
+					</ul>
+				</div>
+			</section>
+			<section id="panel4" role="tabpanel" aria-labelledby="tab4" hidden>
+				<h2>الفيديو</h2>
+				
+				<div class="animate" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem; margin: 1rem 0;">
+					<video controls preload="metadata" style="width: 100%; height: 300px; border-radius: 0.75rem; background: #000; box-shadow: 0 8px 24px rgba(0,0,0,.15);">
+						<source src="assets/video/v1.mp4" type="video/mp4">
+						متصفحك لا يدعم تشغيل الفيديو.
+					</video>
+					
+					<video controls preload="metadata" style="width: 100%; height: 300px; border-radius: 0.75rem; background: #000; box-shadow: 0 8px 24px rgba(0,0,0,.15);">
+						<source src="assets/video/v2.mp4" type="video/mp4">
+						متصفحك لا يدعم تشغيل الفيديو.
+					</video>
+					
+					<video controls preload="metadata" style="width: 100%; height: 300px; border-radius: 0.75rem; background: #000; box-shadow: 0 8px 24px rgba(0,0,0,.15);">
+						<source src="assets/video/v3.mp4" type="video/mp4">
+						متصفحك لا يدعم تشغيل الفيديو.
+					</video>
+					
+					<video controls preload="metadata" style="width: 100%; height: 300px; border-radius: 0.75rem; background: #000; box-shadow: 0 8px 24px rgba(0,0,0,.15);">
+						<source src="assets/video/v4.mp4" type="video/mp4">
+						متصفحك لا يدعم تشغيل الفيديو.
+					</video>
+				</div>
+				
+			</section>
+		</div>
+
+		<h2>أكورديون الأسئلة الشائعة</h2>
+        <div class="accordion animate-on-scroll" id="faq">
+			<button class="btn" aria-expanded="false" aria-controls="a1" id="q1">ما هي الوسائط المتعددة؟</button>
+			<div id="a1" role="region" aria-labelledby="q1" hidden>
+				<p>هي دمج متزامن للنص والصور والصوت والفيديو لتقديم تجربة تعليمية تفاعلية.</p>
+			</div>
+			<button class="btn" aria-expanded="false" aria-controls="a2" id="q2">لماذا نستخدم الضغوط الحديثة؟</button>
+			<div id="a2" role="region" aria-labelledby="q2" hidden>
+				<p>لتقليل حجم الملفات وتسريع التحميل مع الحفاظ على الجودة، خصوصاً في الأجهزة المحمولة.</p>
+			</div>
+		</div>
+	</main>
+
+	<footer class="site-footer">
+		<p>© <span id="year"></span> كلية الهندسة المعلوماتية</p>
+	</footer>
+
+	<script src="js/main.js" defer></script>
+	<script defer>
+	(function(){
+		function wireTabs(root){
+			if(!root) return;
+			const tablist = root.querySelector(':scope > .tablist');
+			if(!tablist) return;
+			const tabButtons = tablist.querySelectorAll('[role="tab"]');
+			const panels = Array.from(root.children).filter(el => el.getAttribute && el.getAttribute('role') === 'tabpanel');
+			if(!tabButtons.length || !panels.length) return;
+			tabButtons.forEach(btn=>{
+				btn.addEventListener('click', (e)=>{
+					e.stopPropagation();
+					tabButtons.forEach(b=>b.setAttribute('aria-selected','false'));
+					panels.forEach(p=>p.hidden = true);
+					btn.setAttribute('aria-selected','true');
+					const panel = document.getElementById(btn.getAttribute('aria-controls'));
+					if(panel) panel.hidden = false;
+				});
+			});
+		}
+		wireTabs(document.getElementById('tabs'));
+		wireTabs(document.getElementById('tabs-text'));
+
+		const faq = document.getElementById('faq');
+		if(faq){
+			faq.addEventListener('click', (e)=>{
+				const t = e.target;
+				if(!(t instanceof HTMLElement)) return;
+				if(t.matches('button[aria-controls]')){
+					const expanded = t.getAttribute('aria-expanded') === 'true';
+					t.setAttribute('aria-expanded', String(!expanded));
+					const region = document.getElementById(t.getAttribute('aria-controls'));
+					if(region) region.hidden = expanded;
+				}
+			});
+		}
+	})();
+	</script>
+</body>
+</html>
+
+

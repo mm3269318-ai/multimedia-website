@@ -1,0 +1,21 @@
+# MIME types for multimedia files
+AddType audio/aac .aac
+AddType audio/mp4 .m4a
+AddType audio/mpeg .mp3
+AddType video/mp4 .mp4
+AddType video/mp4 .h264
+AddType text/vtt .vtt
+
+# Enable compression for better performance
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript
+</IfModule>
+
+# Cache control for static assets
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/avif "access plus 1 month"
+    ExpiresByType audio/aac "access plus 1 month"
+    ExpiresByType video/mp4 "access plus 1 month"
+</IfModule>

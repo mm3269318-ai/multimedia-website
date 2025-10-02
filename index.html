@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>نظم الوسائط المتعددة - موقع المقرر</title>
+	<meta name="description" content="موقع تفاعلي تعليمي عن مقرر نظم الوسائط المتعددة - كلية الهندسة المعلوماتية">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+	<header class="site-header">
+		<a class="brand" href="index.html" aria-label="الشعار">
+			<img class="brand-img" src="assets/images/logo.png" alt="شعار المقرر" width="160" height="48" loading="eager" decoding="async">
+		</a>
+		<button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">القائمة</button>
+		<nav id="siteNav" class="site-nav" aria-label="التنقل الرئيسي">
+			<ul>
+				<li><a class="is-active" href="index.html">الرئيسية</a></li>
+				<li><a href="lessons.html">الدروس</a></li>
+				<li><a href="gallery.html">المعرض</a></li>
+				<li><a href="video.html">الفيديو</a></li>
+				<li><a href="about.html">حول</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section class="page-hero animate-on-scroll" aria-label="مقدمة المقرر">
+			<div class="container animate">
+				<h1>مقرر نظم الوسائط المتعددة</h1>
+				<p>
+					يوفّر هذا الموقع تجربة تعلم تفاعلية غنية لفهم مفاهيم الوسائط المتعددة
+					من خلال رسوم توضيحية، صور محسّنة، ومقاطع فيديو تعليمية مع تسميات توضيحية.
+				</p>
+				<div class="hero-cta">
+					<a class="btn primary" href="lessons.html">ابدأ التعلم</a>
+					<a class="btn" href="video.html">شاهد الفيديو</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="features animate-on-scroll stagger" aria-label="خصائص التعلم">
+			<h2>لماذا هذا الموقع؟</h2>
+			<ul class="feature-grid">
+				<li>
+					<h3>تصميم بصري مميز</h3>
+					<p>ألوان متوازنة وهوية مرئية تناسب الشريحة المستهدفة من طلبة الهندسة المعلوماتية.</p>
+				</li>
+				<li>
+					<h3>صور محسّنة رقمياً</h3>
+					<p>استخدام تنسيقات AVIF/WEBP لتقليل الحجم مع جودة عالية وسرعة تحميل.</p>
+				</li>
+				<li>
+					<h3>فيديو تعليمي</h3>
+					<p>مقاطع فيديو مع تسميات توضيحية ومزامنة نصية لشرح الأفكار الأساسية.</p>
+				</li>
+				<li>
+					<h3>تفاعل واختبارات</h3>
+					<p>عناصر واجهة تفاعلية: تبويبات، أكورديون، واختبار قصير لقياس الفهم.</p>
+				</li>
+			</ul>
+		</section>
+
+		<section class="interactive animate-on-scroll" aria-label="اختبار سريع">
+			<h2>اختبار سريع: ما هي الوسائط المتعددة؟</h2>
+			<form class="quiz" id="quizForm">
+				<fieldset>
+					<legend>اختر الإجابة الصحيحة</legend>
+					<label class="option"><input type="radio" name="q1" value="a"> نص فقط</label>
+					<label class="option"><input type="radio" name="q1" value="b"> صوت وصورة وفيديو ونص</label>
+					<label class="option"><input type="radio" name="q1" value="c"> صورة فقط</label>
+				</fieldset>
+				<button class="btn primary" type="submit">تحقق</button>
+				<p class="quiz-result" id="quizResult" role="status" aria-live="polite"></p>
+			</form>
+		</section>
+
+		<section class="timeline animate-on-scroll" aria-label="خط زمني للتقنيات">
+			<h2>تطور تقنيات الوسائط</h2>
+			<ol class="timeline-list">
+				<li><span>1991</span> ظهور صيغة JPEG للصور الثابتة</li>
+				<li><span>1995</span> انتشار MP3 للصوت المضغوط</li>
+				<li><span>2004</span> H.264 لمقاطع الفيديو عالية الجودة</li>
+				<li><span>2010</span> HTML5 يدعم فيديو وصوت أصلياً</li>
+				<li><span>2018</span> AV1/AVIF كأجيال حديثة لضغط أفضل</li>
+			</ol>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<p>© <span id="year"></span> كلية الهندسة المعلوماتية - مقرر نظم الوسائط المتعددة</p>
+		<p class="note">الصور بصيغة AVIF/WEBP والفيديو بترميز حديث لضمان تجربة سلسة.</p>
+	</footer>
+
+	<script src="js/main.js" defer></script>
+</body>
+</html>
+
+

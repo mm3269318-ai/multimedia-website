@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>المعرض - نظم الوسائط المتعددة</title>
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<header class="site-header">
+		<a class="brand" href="index.html"><img class="brand-img" src="assets/images/logo.png" alt="شعار المقرر" width="160" height="48" loading="eager" decoding="async"></a>
+		<button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">القائمة</button>
+		<nav id="siteNav" class="site-nav" aria-label="التنقل الرئيسي">
+			<ul>
+				<li><a href="index.html">الرئيسية</a></li>
+				<li><a href="lessons.html">الدروس</a></li>
+				<li><a class="is-active" href="gallery.html">المعرض</a></li>
+				<li><a href="video.html">الفيديو</a></li>
+				<li><a href="about.html">حول</a></li>
+			</ul>
+		</nav>
+	</header>
+
+    <section class="page-hero animate-on-scroll" aria-label="مقدمة صفحة المعرض">
+        <div class="container">
+            <h1>معرض الوسائط</h1>
+            <p>نماذج صور تعليمية مضغوطة بصيغ حديثة مع نص بديل واضح.</p>
+        </div>
+    </section>
+
+	<main class="animate-on-scroll" style="max-width:1100px;padding:1rem;margin:0 auto;">
+		<h2>محلل صورة</h2>
+		<p>ارفع صورة لتحليل الألوان والحصول على قيم RGB وCMYK ومدرج لوني مبسّط.</p>
+		<div class="animate" style="margin:.5rem 0 1rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-start;">
+			<label class="btn" for="imgInput">اختر صورة</label>
+			<input id="imgInput" type="file" accept="image/*" style="display:none;">
+			<span id="imgName" style="color:var(--muted);"></span>
+		</div>
+		<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start;">
+			<div>
+				<figure>
+					<img id="imgPreview" alt="معاينة الصورة" style="max-width:100%;height:auto;border-radius:.75rem;border:1px solid #e5e7eb;display:none;"/>
+					<figcaption style="color:var(--muted);">معاينة الصورة المرفوعة</figcaption>
+				</figure>
+			</div>
+			<div>
+				<canvas id="histCanvas" width="512" height="256" style="width:100%;height:auto;border:1px solid #e5e7eb;border-radius:.5rem;background:#fff;"></canvas>
+				<p style="color:var(--muted);margin:.25rem 0 0;">مدرج لوني مبسّط (Histogram) لقنوات RGB</p>
+				<div style="margin-top:.5rem;display:grid;grid-template-columns:1fr 1fr;gap:.5rem;">
+					<div style="background:#fff;border:1px solid #e5e7eb;border-radius:.5rem;padding:.5rem;">
+						<h3 style="margin:.25rem 0;font-size:1rem;">قيم متوسطة</h3>
+						<p id="avgRgb">RGB: -</p>
+						<p id="avgCmyk">CMYK: -</p>
+					</div>
+					<div style="background:#fff;border:1px solid #e5e7eb;border-radius:.5rem;padding:.5rem;">
+						<h3 style="margin:.25rem 0;font-size:1rem;">ألوان سائدة</h3>
+						<div id="swatches" style="display:flex;gap:.25rem;flex-wrap:wrap;"></div>
+					</div>
+				</div>
+				<p style="color:var(--muted);margin-top:.5rem;">ملاحظة: التمثيل الطيفي (Spectrogram) خاص بالصوت. لعرضه يلزم ملف صوتي.</p>
+			</div>
+
+			<hr style="margin:1.25rem 0;border:none;border-top:1px solid #e5e7eb;"/>
+			<h2>محلل صوت</h2>
+			<p>ارفع ملف صوتي وشغّله لعرض ترددات الصوت (تمثيل طيفي مبسّط لحظي).</p>
+			<div class="animate" style="margin:.5rem 0 1rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+				<label class="btn" for="audioInput">اختر صوت</label>
+				<input id="audioInput" type="file" accept="audio/aac,audio/mp4,audio/mpeg,audio/*" style="display:none;">
+				<span id="audioName" style="color:var(--muted);"></span>
+			</div>
+			<audio id="audioPlayer" controls style="width:100%;max-width:600px;display:block;margin-bottom:.5rem;"></audio>
+			<div id="specWrap" style="position:relative;width:100%;">
+				<canvas id="specCanvas" width="512" height="256" style="width:100%;height:auto;border:1px solid #e5e7eb;border-radius:.5rem;background:#0b0b12;"></canvas>
+				<canvas id="specAxis" width="512" height="256" style="position:absolute;inset:0;pointer-events:none;width:100%;height:auto;background:transparent;"></canvas>
+			</div>
+			<canvas id="specLegend" width="256" height="12" style="margin-top:.25rem;width:100%;max-width:320px;height:12px;border:1px solid #e5e7eb;border-radius:4px;display:block;"></canvas>
+			<p style="color:var(--muted);margin:.25rem 0 0;">عرض طيفي لحظي (تردد لوغاريتمي من الأعلى للأدنى)</p>
+		</div>
+
+		<h2 style="margin-top:1.25rem;">إرشادات احترافية للصور</h2>
+		<ul class="feature-grid" style="grid-template-columns: 1fr 1fr;">
+			<li>
+				<h3>اختيار الصيغة</h3>
+				<p>WEBP/AVIF للصور الفوتوغرافية، وSVG للشعارات والرموز المتجهة.</p>
+			</li>
+			<li>
+				<h3>الضغط المناسب</h3>
+				<p>وازن بين الحجم والجودة. ابدأ بجودة متوسطة، ثم عدّل حسب الحاجة.</p>
+			</li>
+			<li>
+				<h3>النص البديل</h3>
+				<p>اكتب وصفًا موجزًا للصورة لدعم القارئات الشاشة وتحسين السيو.</p>
+			</li>
+			<li>
+				<h3>الأبعاد الصحيحة</h3>
+				<p>اضبط أبعاد العرض لتقليل التخطي أثناء التحميل وتحسين الاستجابة.</p>
+			</li>
+		</ul>
+
+	</main>
+
+	<footer class="site-footer">
+		<p>© <span id="year"></span> كلية الهندسة المعلوماتية</p>
+	</footer>
+	<script src="js/main.js" defer></script>
+	<script defer>
+	(function(){
+		const input = document.getElementById('imgInput');
+		const img = document.getElementById('imgPreview');
+		const nameEl = document.getElementById('imgName');
+		const canvas = document.getElementById('histCanvas');
+		if(!(input && img && nameEl && canvas)) return;
+		const ctx = canvas.getContext('2d');
+		const SW = 512, SH = 256;
+		function rgbToCmyk(r,g,b){
+			const r1=r/255,g1=g/255,b1=b/255;
+			const k = 1-Math.max(r1,g1,b1);
+			if(k===1) return {c:0,m:0,y:0,k:1};
+			const c = (1-r1-k)/(1-k);
+			const m = (1-g1-k)/(1-k);
+			const y = (1-b1-k)/(1-k);
+			return {c,m,y,k};
+		}
+		function drawHistogram(image){
+			// رسم المصغّر على كانفس مخفي لقراءة البكسلات
+			const tmp = document.createElement('canvas');
+			tmp.width = SW; tmp.height = SH;
+			const tctx = tmp.getContext('2d');
+			const scale = Math.min(SW/image.width, SH/image.height);
+			const w = Math.max(1, Math.floor(image.width*scale));
+			const h = Math.max(1, Math.floor(image.height*scale));
+			tctx.drawImage(image, 0, 0, w, h);
+			const data = tctx.getImageData(0,0,w,h).data;
+			const bins = 256;
+			const histR = new Array(bins).fill(0);
+			const histG = new Array(bins).fill(0);
+			const histB = new Array(bins).fill(0);
+			let sumR=0,sumG=0,sumB=0,count=0;
+			for(let i=0;i<data.length;i+=4){
+				const r=data[i], g=data[i+1], b=data[i+2], a=data[i+3];
+				if(a===0) continue;
+				histR[r]++; histG[g]++; histB[b]++;
+				sumR+=r; sumG+=g; sumB+=b; count++;
+			}
+			// متوسطات RGB و CMYK
+			const avgR = Math.round(sumR/Math.max(1,count));
+			const avgG = Math.round(sumG/Math.max(1,count));
+			const avgB = Math.round(sumB/Math.max(1,count));
+			document.getElementById('avgRgb').textContent = `RGB: ${avgR}, ${avgG}, ${avgB}`;
+			const cmyk = rgbToCmyk(avgR,avgG,avgB);
+			document.getElementById('avgCmyk').textContent = `CMYK: ${
+				[Math.round(cmyk.c*100),Math.round(cmyk.m*100),Math.round(cmyk.y*100),Math.round(cmyk.k*100)].join('% , ')
+			}%`;
+			// الرسم
+			ctx.clearRect(0,0,SW,SH);
+			ctx.fillStyle = '#ffffff';
+			ctx.fillRect(0,0,SW,SH);
+			const maxR = Math.max(...histR), maxG=Math.max(...histG), maxB=Math.max(...histB);
+			const scaleY = v=> SH*(v/Math.max(1, Math.max(maxR,maxG,maxB)));
+			const barW = SW/bins;
+			for(let x=0;x<bins;x++){
+				const rH = scaleY(histR[x]);
+				const gH = scaleY(histG[x]);
+				const bH = scaleY(histB[x]);
+				ctx.fillStyle = 'rgba(255,0,0,0.35)';
+				ctx.fillRect(x*barW, SH-rH, Math.max(1,barW), rH);
+				ctx.fillStyle = 'rgba(0,255,0,0.35)';
+				ctx.fillRect(x*barW, SH-gH, Math.max(1,barW), gH);
+				ctx.fillStyle = 'rgba(0,0,255,0.35)';
+				ctx.fillRect(x*barW, SH-bH, Math.max(1,barW), bH);
+			}
+			// ألوان سائدة بسيطة (من المتوسطات ±)
+			const sw = document.getElementById('swatches');
+			sw.innerHTML = '';
+			function addSwatch(r,g,b){
+				const d = document.createElement('div');
+				d.style.width='28px';d.style.height='20px';d.style.borderRadius='4px';d.style.border='1px solid #e5e7eb';d.style.background=`rgb(${r},${g},${b})`;
+				sw.appendChild(d);
+			}
+			addSwatch(avgR,avgG,avgB);
+			addSwatch(Math.min(255,avgR+30),avgG,avgB);
+			addSwatch(avgR,Math.min(255,avgG+30),avgB);
+			addSwatch(avgR,avgG,Math.min(255,avgB+30));
+		}
+		input.addEventListener('change', ()=>{
+			const file = input.files && input.files[0];
+			if(!file) return;
+			nameEl.textContent = file.name;
+			const reader = new FileReader();
+			reader.onload = () => {
+				img.src = String(reader.result);
+				img.style.display = 'block';
+				const image = new Image();
+				image.onload = ()=> drawHistogram(image);
+				image.src = String(reader.result);
+			};
+			reader.readAsDataURL(file);
+		});
+
+		// Audio analyzer (real-time simplified spectrogram, supports AAC via <audio>)
+		const audioInput = document.getElementById('audioInput');
+		const audioName = document.getElementById('audioName');
+		const audioEl = document.getElementById('audioPlayer');
+		const spec = document.getElementById('specCanvas');
+		if(audioInput && audioName && audioEl && spec){
+			const actx = new (window.AudioContext || window.webkitAudioContext)();
+			const analyser = actx.createAnalyser();
+			analyser.fftSize = 2048; // أعلى دقة
+			analyser.smoothingTimeConstant = 0.85; // سلاسة بصرية
+			const bufferLength = analyser.frequencyBinCount; // e.g. 1024
+			const dataArray = new Uint8Array(bufferLength);
+			const sctx = spec.getContext('2d');
+			const axis = document.getElementById('specAxis').getContext('2d');
+			const legend = document.getElementById('specLegend').getContext('2d');
+			// رسم تدريج اللون في الـ legend
+			const grad = legend.createLinearGradient(0,0,legend.canvas.width,0);
+			grad.addColorStop(0,'#0b0b12');
+			grad.addColorStop(0.25,'#1F0C57');
+			grad.addColorStop(0.5,'#5F5D73');
+			grad.addColorStop(0.75,'#9b59b6');
+			grad.addColorStop(1,'#f1c40f');
+			legend.fillStyle = grad;
+			legend.fillRect(0,0,legend.canvas.width,legend.canvas.height);
+			let connected = false;
+			// Color map from magnitude to color (dark -> brand purple -> yellow)
+			function colorFor(value){
+				const t = value/255; // 0..1
+				// تدرج مخصص: داكن -> بنفسجي العلامة -> أزرق باهت -> أصفر
+				const r = Math.floor(241 * Math.max(0, t - 0.6) / 0.4);
+				const g = Math.floor(196 * Math.max(0, t - 0.7) / 0.3);
+				const b = Math.floor(240 * (1 - t));
+				return `rgb(${r},${g},${b})`;
+			}
+			// مقياس لوغاريتمي للتردد
+			function binForRow(y, rows){
+				const fMin = 50, fMax = actx.sampleRate/2;
+				const frac = 1 - y/rows;
+				const f = fMin * Math.pow(fMax/fMin, frac);
+				const index = Math.max(0, Math.min(bufferLength-1, Math.round(f / (actx.sampleRate/2) * (bufferLength-1))));
+				return index;
+			}
+			function drawColumn(){
+				// shift left by 1px
+				const img = sctx.getImageData(1,0,spec.width-1,spec.height);
+				sctx.putImageData(img,0,0);
+				// fetch spectrum
+				analyser.getByteFrequencyData(dataArray);
+				// draw new column at right
+				const x = spec.width-1;
+				const rows = spec.height;
+				for(let y=0;y<rows;y++){
+					const bin = binForRow(y, rows);
+					const v = dataArray[bin];
+					sctx.fillStyle = colorFor(v);
+					sctx.fillRect(x, y, 1, 1);
+				}
+				// redraw axis grid occasionally
+				axis.clearRect(0,0,axis.canvas.width,axis.canvas.height);
+				axis.strokeStyle = 'rgba(255,255,255,0.2)';
+				axis.lineWidth = 1;
+				const ticks = [100, 500, 1000, 2000, 4000, 8000, 16000];
+				axis.font = '10px Cairo, system-ui';
+				axis.fillStyle = 'rgba(255,255,255,0.6)';
+				for(const f of ticks){
+					const frac = Math.log(f/50)/Math.log((actx.sampleRate/2)/50);
+					const y = (1-frac) * axis.canvas.height;
+					axis.beginPath();
+					axis.moveTo(0,y);
+					axis.lineTo(axis.canvas.width,y);
+					axis.stroke();
+					axis.fillText(`${f/1000>=1? (f/1000)+'k': f}Hz`, 4, Math.max(10, y-2));
+				}
+				requestAnimationFrame(drawColumn);
+			}
+			// init canvas background
+			sctx.fillStyle = '#0b0b12';
+			sctx.fillRect(0,0,spec.width,spec.height);
+			requestAnimationFrame(drawColumn);
+			audioInput.addEventListener('change', ()=>{
+				const file = audioInput.files && audioInput.files[0];
+				if(!file) return;
+				audioName.textContent = file.name;
+				const url = URL.createObjectURL(file);
+				audioEl.src = url;
+				if(!connected){
+					const source = actx.createMediaElementSource(audioEl);
+					source.connect(analyser);
+					analyser.connect(actx.destination);
+					connected = true;
+				}
+				if(actx.state === 'suspended') actx.resume();
+			});
+			audioEl.addEventListener('play', ()=>{ if(actx.state === 'suspended') actx.resume(); });
+		}
+	})();
+	</script>
+</body>
+</html>
+
+

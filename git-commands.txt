@@ -1,0 +1,17 @@
+# أوامر Git لرفع المشروع على GitHub
+
+# 1. تهيئة Git repository
+git init
+
+# 2. إضافة جميع الملفات
+git add .
+
+# 3. عمل commit أولي
+git commit -m "Initial commit - Multimedia Systems Website"
+
+# 4. إضافة remote repository (استبدل username و repository-name)
+git remote add origin https://github.com/username/multimedia-website.git
+
+# 5. رفع الملفات
+git branch -M main
+git push -u origin main

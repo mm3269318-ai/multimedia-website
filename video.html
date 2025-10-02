@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>الفيديو التعليمي - نظم الوسائط المتعددة</title>
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<header class="site-header">
+		<a class="brand" href="index.html"><img class="brand-img" src="assets/images/logo.png" alt="شعار المقرر" width="160" height="48" loading="eager" decoding="async"></a>
+		<button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">القائمة</button>
+		<nav id="siteNav" class="site-nav" aria-label="التنقل الرئيسي">
+			<ul>
+				<li><a href="index.html">الرئيسية</a></li>
+				<li><a href="lessons.html">الدروس</a></li>
+				<li><a href="gallery.html">المعرض</a></li>
+				<li><a class="is-active" href="video.html">الفيديو</a></li>
+				<li><a href="about.html">حول</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<section class="page-hero animate-on-scroll" aria-label="مقدمة صفحة الفيديو">
+		<div class="container">
+			<h1>فيديو المقرر</h1>
+			<p>مشاهدة الشرح مع تسميات توضيحية VTT ومثال تراكب متزامن.</p>
+		</div>
+	</section>
+
+	<main class="animate-on-scroll" style="max-width:1100px;padding:1rem;margin:0 auto;">
+		<h1>فيديو تعليمي مع تسميات توضيحية</h1>
+		<p>الفيديو التالي يوضح دمج الوسائط مع تسميات VTT متزامنة.</p>
+		<div class="animate" style="position:relative;max-width:960px;margin-inline:auto;">
+			<video id="eduVideo" width="960" height="540" controls preload="metadata" style="width:100%;height:auto;border-radius:1rem;box-shadow:0 8px 24px rgba(0,0,0,.08);">
+				<source src="assets/video/lesson.mp4?v=1" type="video/mp4">
+				<track kind="captions" src="assets/video/captions.vtt" srclang="ar" label="العربية" default>
+				عذراً، متصفحك لا يدعم عنصر الفيديو.
+			</video>
+			<div id="overlayText" style="position:absolute;inset:auto 1rem 1rem 1rem;background:rgba(0,0,0,.45);color:#fff;padding:.5rem .75rem;border-radius:.5rem;font-weight:600;display:none;">مزامنة: النص + الصورة + الصوت</div>
+		</div>
+	</main>
+
+	<footer class="site-footer">
+		<p>© <span id="year"></span> كلية الهندسة المعلوماتية</p>
+	</footer>
+	<script src="js/main.js" defer></script>
+	<script defer>
+	(function(){
+		const video = document.getElementById('eduVideo');
+		const overlay = document.getElementById('overlayText');
+		if(!(video && overlay)) return;
+		video.addEventListener('timeupdate', ()=>{
+			const t = video.currentTime;
+			const show = t >= 3 && t <= 10; // مثال توضيحي لمزامنة نصية بسيطة
+			overlay.style.display = show ? 'block' : 'none';
+		});
+	})();
+	</script>
+</body>
+</html>
+
+
