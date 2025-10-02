@@ -125,7 +125,9 @@
 				<h2>الصوت</h2>
 				<figure class="animate" style="margin:.75rem 0;">
 					<audio controls preload="metadata" style="width:100%;">
+						<source src="https://cdn.jsdelivr.net/gh/mm3269318-ai/multimedia-website@main/assets/audio/voice.aac" type="audio/aac">
 						<source src="https://github.com/mm3269318-ai/multimedia-website/raw/main/assets/audio/voice.aac" type="audio/aac">
+						<source src="assets/audio/voice.aac" type="audio/aac">
 						متصفحك لا يدعم تشغيل ملف الصوت AAC.
 					</audio>
 					
@@ -192,7 +194,9 @@
 				
 				<div class="animate" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem; margin: 1rem 0;">
 					<video controls preload="metadata" style="width: 100%; height: 300px; border-radius: 0.75rem; background: #000; box-shadow: 0 8px 24px rgba(0,0,0,.15);">
+						<source src="https://cdn.jsdelivr.net/gh/mm3269318-ai/multimedia-website@main/assets/video/v1.mp4" type="video/mp4">
 						<source src="https://github.com/mm3269318-ai/multimedia-website/raw/main/assets/video/v1.mp4" type="video/mp4">
+						<source src="assets/video/v1.mp4" type="video/mp4">
 						متصفحك لا يدعم تشغيل الفيديو.
 					</video>
 					
@@ -233,6 +237,7 @@
 	</footer>
 
 	<script src="js/main.js" defer></script>
+	<script src="js/media-fallback.js" defer></script>
 	<script defer>
 	(function(){
 		function wireTabs(root){
